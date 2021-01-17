@@ -34,7 +34,7 @@ route.post('/',async (req , res) => {
 })
 
 //Signup route Owner
-route.post('/signup',async (req,res) => {Success
+route.post('/signup',async (req,res) => {
   var name = req.body.name;
   var phone = req.body.phone;
   var email = req.body.email;
@@ -55,9 +55,10 @@ route.post('/signup',async (req,res) => {Success
   //Check if owner exist
   const owner_val_ema = await Owner.findOne({ where: { owner_email : email} });
   const owner_val_adr = await Owner.findOne({ where: { owner_address : address} });
+  const owner_val_city = await Owner.findOne({ where: { owner_city : city} });
 
-  if(owner_val_ema!=null || owner_val_adr!=null){
-    res.status(400).send("Seems like you already had an account with us");
+  if(owner_val_ema!=null || owner_val_adr!=null || owner_val_city!=null){
+    res.status(400).send("Seems like you already had an account with us or there is already a wonder store in your city");
   }
   else{
     // Encrypt the password  // (Function to be added here)
