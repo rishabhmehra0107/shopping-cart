@@ -14,10 +14,13 @@ const Owner = db.define('owner',{
     autoIncrement : true
   },
   owner_name : DataTypes.STRING(40),
-  onwer_address : DataTypes.STRING(150),
+  owner_address : DataTypes.STRING(150),
   owner_phone : DataTypes.STRING(10),
   owner_email : DataTypes.STRING(50),
-  owner_adhar : DataTypes.STRING(12)
+  owner_adhar : DataTypes.STRING(12),
+  owner_password : DataTypes.STRING(150),
+  owner_city : DataTypes.STRING(15),
+  owner_state : DataTypes.STRING(15)
 });
 
 //Store object
@@ -71,6 +74,7 @@ const Customer = db.define('customer',{
   customer_address : DataTypes.STRING(150),
   customer_phone : DataTypes.STRING(10),
   customer_email : DataTypes.STRING(50),
+  customer_password : DataTypes.STRING(150)
 });
 
 //Cart table
