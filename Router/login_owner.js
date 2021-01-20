@@ -29,6 +29,7 @@ route.post('/',async (req , res) => {
     res.status(400).send("Either email or password is incorrect");
   }
   else{
+    req.session.loginTrue = true;
     res.status(200).send("Success");
   }
 })

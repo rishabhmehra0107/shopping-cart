@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const session_express = require('express-session');
 
 const PORT = process.env.PORT || 9999;
 
@@ -9,6 +10,13 @@ app.use(express.urlencoded({extended:true}));
 //Setting the static file
 app.use(express.static('public'));
 app.use(express.static('uploads'));
+
+app.use(session_express({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  name : 'session1'
+}))
 
 app.get('/',(req,res) => {
   res.send("Working");
