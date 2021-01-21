@@ -31,6 +31,9 @@ app.use('/login_owner',require('./Router/login_owner.js'));
 // Product route
 app.use('/products',require('./Router/products.js'));
 
+// Cart route
+app.use('/cart',require('./Router/cart.js'));
+
 app.listen(PORT,() => {
   console.log("Server started");
 })

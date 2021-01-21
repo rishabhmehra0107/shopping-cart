@@ -29,7 +29,9 @@ route.post('/',async (req , res) => {
     res.status(400).send("Either email or password is incorrect");
   }
   else{
-    req.session.loginTrue = true;
+    // console.log(customer.dataValues.customer_id);
+    req.session.owner_cust = 'customer';
+    req.session.cust_id = customer.dataValues.customer_id;
     res.status(200).send("Success");
   }
 

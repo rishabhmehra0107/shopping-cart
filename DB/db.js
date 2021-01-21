@@ -83,8 +83,9 @@ const Cart = db.define('cart',{
     type : DataTypes.INTEGER,
     primaryKey : true,
     autoIncrement : true
-  }
+  },
   //Also contain the customer_id and the product_id
+  prod_count : DataTypes.INTEGER
 });
 
 //Transaction
@@ -139,5 +140,6 @@ exports = module.exports = {
   ProductSold ,
   Cart ,
   Review ,
-  Customer
+  Customer,
+  Sequelize
 }

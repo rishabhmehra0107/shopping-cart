@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 let upload = multer({ storage: storage}).single('prod_img');
 
 route.post('/add_product',upload,async (req , res) => {
-  if(!req.session.loginTrue){
+  if(!req.session.cust_id){
     res.send("Not allowed");
   }
   else{
