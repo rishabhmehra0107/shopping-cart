@@ -8,8 +8,9 @@ app.use(express.json()); //Data to be in json format
 app.use(express.urlencoded({extended:true}));
 
 //Setting the static file
-app.use(express.static('public'));
 app.use(express.static('uploads'));
+app.use(express.static(__dirname + '/public/images'));
+app.use(express.static(__dirname + '/public/Css'));
 
 app.use(session_express({
   secret: 'keyboard cat',
@@ -18,9 +19,7 @@ app.use(session_express({
   name : 'session1'
 }))
 
-app.get('/',(req,res) => {
-  res.send("Working");
-})
+app.use('/',express.static(__dirname + '/public/html'));
 
 //Login path
 app.use('/login',require('./Router/login_customer.js'));
