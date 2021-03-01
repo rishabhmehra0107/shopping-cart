@@ -11,30 +11,30 @@ route.post('/',async (req , res) => {
   var email = req.body.email;
   var password = req.body.password;
 
+  console.log(email,password);
   //Check for the initial cred
   if(email.length<=7 || password.length<=7){
-    res.status(400).send("Either email or password is incorrect");
-  }
-
-  // Encrypt the password  // (Function to be added here)
-
-  //Get the encrypted password from database
-  const customer = await Customer.findOne({ where: { customer_email : email } });
-  if(customer == null){
-    res.status(400).send("Either email or password is incorrect");
-  }
-
-  //Check for the password
-  if(customer.dataValues.customer_password != password){
-    res.status(400).send("Either email or password is incorrect");
+    res.send("Either email or password is incorrect");
   }
   else{
-    // console.log(customer.dataValues.customer_id);
-    req.session.owner_cust = 'customer';
-    req.session.cust_id = customer.dataValues.customer_id;
-    res.status(200).send("Success");
-  }
+    // Encrypt the password  // (Function to be added here)
 
+    //Get the encrypted password from database
+    const customer = await Customer.findOne({ where: { customer_email : email } });
+    if(customer == null){
+      res.send("Either email or password is incorrect");
+      return;
+    }
+    else if(customer.dataValues.customer_password != password){
+      res.send("Either email or password is incorrect");
+    }
+    else{
+      // console.log(customer.dataValues.customer_id);
+      req.session.owner_cust = 'customer';
+      req.session.cust_id = customer.dataValues.customer_id;
+      res.send("Success");
+    }
+  }
 })
 
 //Signup route customer

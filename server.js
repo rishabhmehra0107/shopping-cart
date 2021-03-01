@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const session_express = require('express-session');
+var cors = require('cors')
 
 const PORT = process.env.PORT || 9999;
 
+app.use(cors())
 app.use(express.json()); //Data to be in json format
 app.use(express.urlencoded({extended:true}));
 
@@ -11,6 +13,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static('uploads'));
 app.use(express.static(__dirname + '/public/images'));
 app.use(express.static(__dirname + '/public/Css'));
+app.use(express.static(__dirname + '/public/JS'));
 
 app.use(session_express({
   secret: 'keyboard cat',

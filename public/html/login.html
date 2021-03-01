@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script async defer type="text/javascript" src="login.js"></script>
 
 
     <title>Wonder Market</title>
@@ -62,7 +65,7 @@
     <!-- ==============Login starts here============== -->
     <section class="Checkout py-5 my-5" id="Checkout">
         <div class="container ">
-            <div class="section_title text-center mb-5">
+            <div class="section_title text-center mb-5" id="error">
                 <h1 class="text-capitalize">Login</h1>
             </div>
             <div class="row ">
@@ -73,14 +76,8 @@
                         <div class="card-body">
                             <h5 class="mb-5 badge badge-danger">Login Details</h5>
 
-
-
-
-
-
                             <div class="form-group">
-                                <label for="form18">Phone</label>
-                                <input type="number" id="form18" class="form-control">
+                                <h3>Enter the details to login</h3>
                             </div>
 
 
@@ -91,14 +88,14 @@
 
                             <div class="form-group">
                                 <label for="form19">Password</label>
-                                <input type="password" id="form19" class="form-control">
+                                <input type="password" id="form20" class="form-control">
                             </div>
 
 
                             <div class="text-center">
-                                <a href="order_confirmation.html" class="btn btn-primary">
+                                <div class="btn btn-primary" id="btn">
                                     <i class="fa fa-check mr-2"></i>Login
-                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,7 +108,7 @@
                     <div class="mb-3">
                         <div class="pt-4 ">
                             <h5 class="mb-3">ABOUT US</h5>
-                            <img src="rishabh/images/logo.png" width="750px" class="img img-fluid" alt="logo">
+                            <img src="logo.png" width="750px" class="img img-fluid" alt="logo">
                             <p>Sway your way through life with Wonder Market’s collection of best grocerry. Be it for your everyday wear, your food or for your daily needs, Wonder Market has just the right selection of make the right statement. Browse through and get bewitched!</p>
                         </div>
                     </div>
