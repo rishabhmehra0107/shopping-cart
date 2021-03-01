@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script defer async src="signup.js"></script>
 
     <title>Wonder Market</title>
 </head>
@@ -83,10 +84,10 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
-
+    
                                     <div class="form-group mb-0 mb-lg-4">
                                         <label for="firstName">Middle name</label>
-                                        <input type="text" id="firstName" class="form-control mb-0 mb-lg-2">
+                                        <input type="text" id="middleName" class="form-control mb-0 mb-lg-2">
                                     </div>
                                 </div>
 
@@ -115,14 +116,14 @@
 
                             <div class="form-group">
                                 <label for="form19">Password</label>
-                                <input type="password" id="form19" placeholder="Login with this password" class="form-control">
+                                <input type="passwordform19" id="form20" placeholder="Login with this password" class="form-control">
                             </div>
 
 
                             <div class="d-flex flex-wrap">
                                 <div class="w-100">
                                     <label>Country</label>
-                                    <select class="custom-select form-group">
+                                    <select class="custom-select form-group" id="selects">
                                         <option value="" selected>Choose your option</option>
                                         <option value="1">USA</option>
                                         <option value="2">UK</option>
@@ -160,9 +161,9 @@
 
 
                             <div class="text-center">
-                                <a href="order_confirmation.html" class="btn btn-primary">
+                                <div class="btn btn-primary" id="btn">
                                     <i class="fa fa-check mr-2"></i>SignUp
-                                </a>
+                                </div>
                             </div>
                         </div>
                     </div>

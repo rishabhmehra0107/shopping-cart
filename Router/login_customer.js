@@ -46,28 +46,31 @@ route.post('/signup',async (req,res) => {
   var address = req.body.address;
   var phone = req.body.phone;
 
+  console.log(name,email,password,address,phone);
   if(name.length <= 5 || email.length<=7 || password.length<=7 || address.length<=15 || phone.length!=10){
-    res.status(400).send("Please follow the instruction inorder to create account with us");
-  }
-
-  const customer_val_ema = await Customer.findOne({ where: { customer_email : email} });
-  const customer_val_adr = await Customer.findOne({ where: { customer_address : address} });
-
-  if(customer_val_ema != null || customer_val_adr!=null){
-    res.status(400).send("Sorry,we think you already had an account with us");
+    res.send("Please follow the instruction inorder to create account with us");
   }
   else{
-    // Encrypt the password  // (Function to be added here)
 
-    await Customer.create({
-      customer_name : name ,
-      customer_email : email,
-      customer_address : address,
-      customer_password : password,
-      customer_phone : phone
-    });
+    const customer_val_ema = await Customer.findOne({ where: { customer_email : email} });
+    const customer_val_adr = await Customer.findOne({ where: { customer_address : address} });
 
-    res.status(200).send("Success");
+    if(customer_val_ema != null || customer_val_adr!=null){
+      res.send("Sorry,we think you already had an account with us");
+    }
+    else{
+      // Encrypt the password  // (Function to be added here)
+
+      await Customer.create({
+        customer_name : name ,
+        customer_email : email,
+        customer_address : address,
+        customer_password : password,
+        customer_phone : phone
+      });
+
+      res.status(200).send("Success");
+    }
   }
 
 })
