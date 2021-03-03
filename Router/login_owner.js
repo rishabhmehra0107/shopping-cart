@@ -11,27 +11,30 @@ route.post('/',async (req , res) => {
   var email = req.body.email;
   var password = req.body.password;
 
-  //Check for the initial cred
-  if(email.length<=7 || password.length<=7){
-    res.status(400).send("Either email or password is incorrect");
-  }
-
   // Encrypt the password  // (Function to be added here)
 
-  //Get the encrypted password from database
-  const owner = await Owner.findOne({ where: { owner_email : email } });
-  if(owner == null){
-    res.status(400).send("Either email or password is incorrect");
-  }
 
-  //Check for the password
-  if(owner.dataValues.owner_password != password){
-    res.status(400).send("Either email or password is incorrect");
+  //Check for the initial cred
+  if(email.length<=7 || password.length<=7){
+    res.send("Either email or password is incorrect");
   }
   else{
-    req.session.owner_cust = 'owner';
-    req.session.owner_id = owner.dataValues.owner_id;
-    res.status(200).send("Success");
+    const owner = await Owner.findOne({ where: { owner_email : email } });
+    if(owner == null){
+      res.send("Either email or password is incorrect");
+    }
+    else{
+
+      //Check for the password
+      if(owner.dataValues.owner_password != password){
+        res.send("Either email or password is incorrect");
+      }
+      else{
+        req.session.owner_cust = 'owner';
+        req.session.owner_id = owner.dataValues.owner_id;
+        res.send("Success");
+      }
+    }
   }
 })
 

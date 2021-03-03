@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script defer async src="signup.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script async defer type="text/javascript" src="login_owner.js"></script>
+
 
     <title>Wonder Market</title>
 </head>
@@ -42,14 +44,6 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="login.html" style="color : white ; margin-right:20px">Login Customer</a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" href="signup.html" style="color : white ; margin-right:20px">Signup</a>
-                </li>
-
-                <li class="nav-item">
                   <a class="nav-link" href="contacts.html" style="color : white ; margin-right:20px">Contact Us</a>
                 </li>
 
@@ -60,11 +54,11 @@
     </section>
     <!-- ==============header menu section ends here============== -->
 
-    <!-- ==============SignUp starts here============== -->
+    <!-- ==============Login starts here============== -->
     <section class="Checkout py-5 my-5" id="Checkout">
         <div class="container ">
-            <div class="section_title text-center mb-5">
-                <h1 class="text-capitalize">SIGN UP</h1>
+            <div class="section_title text-center mb-5" id="error">
+                <h1 class="text-capitalize">Login</h1>
             </div>
             <div class="row ">
 
@@ -72,40 +66,10 @@
 
                     <div class="card bg_checkout_1 pb-5">
                         <div class="card-body">
-                            <h5 class="mb-5 badge badge-danger">Customer SignUp Details</h5>
-
-                            <div class="row">
-
-                                <div class="col-lg-4">
-
-                                    <div class="form-group mb-0 mb-lg-4">
-                                        <label for="firstName">First name</label>
-                                        <input type="text" id="firstName" class="form-control mb-0 mb-lg-2">
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-    
-                                    <div class="form-group mb-0 mb-lg-4">
-                                        <label for="firstName">Middle name</label>
-                                        <input type="text" id="middleName" class="form-control mb-0 mb-lg-2">
-                                    </div>
-                                </div>
-
-
-
-                                <div class="col-lg-4">
-
-                                    <div class="form-group md-outline">
-                                        <label for="lastName">Last name</label>
-                                        <input type="text" id="lastName" class="form-control">
-                                    </div>
-                                </div>
-
-                            </div>
+                            <h5 class="mb-5 badge badge-danger">Login Details</h5>
 
                             <div class="form-group">
-                                <label for="form18">Phone</label>
-                                <input type="number" id="form18" class="form-control">
+                                <h3>Enter the details to login</h3>
                             </div>
 
 
@@ -116,53 +80,13 @@
 
                             <div class="form-group">
                                 <label for="form19">Password</label>
-                                <input type="passwordform19" id="form20" placeholder="Login with this password" class="form-control">
+                                <input type="password" id="form20" class="form-control">
                             </div>
-
-
-                            <div class="d-flex flex-wrap">
-                                <div class="w-100">
-                                    <label>Country</label>
-                                    <select class="custom-select form-group" id="selects">
-                                        <option value="" selected>Choose your option</option>
-                                        <option value="1">USA</option>
-                                        <option value="2">UK</option>
-                                        <option value="3">INDIA</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="form14">Address Line 1</label>
-                                <input type="text" id="form14" placeholder="House number and street name"
-                                    class="form-control">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="form15">Address Line 2</label>
-                                <input type="text" id="form15" placeholder="Area name and City"
-                                    class="form-control">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="form16">Postcode / ZIP</label>
-                                <input type="text" id="form16" placeholder="e.g. Model Town,Delhi-110009" class="form-control">
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="form17">Town / City</label>
-                                <input type="text" id="form17" class="form-control">
-                            </div>
-
 
 
                             <div class="text-center">
                                 <div class="btn btn-primary" id="btn">
-                                    <i class="fa fa-check mr-2"></i>SignUp
+                                    <i class="fa fa-check mr-2"></i>Login
                                 </div>
                             </div>
                         </div>
@@ -237,6 +161,7 @@
         </div>
         <!-- Copyright -->
       </footer>
+
 
 </body>
 
