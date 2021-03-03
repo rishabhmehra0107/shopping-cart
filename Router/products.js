@@ -18,10 +18,6 @@ const storage = multer.diskStorage({
 let upload = multer({ storage: storage}).single('prod_img');
 
 route.post('/add_product',upload,async (req , res) => {
-  if(!req.session.cust_id){
-    res.send("Not allowed");
-  }
-  else{
     var product_description = req.body.product_description;
     var product_name = req.body.product_name;
     var product_count = req.body.product_count;
@@ -49,9 +45,36 @@ route.post('/add_product',upload,async (req , res) => {
 
       res.status(200).send("Success");
     }
+})
+
+route.get('/product_category',(req,res) => {
+  Product.aggregate('product_category','DISTINCT',{plain : false}).then((response) => {
+    res.send(response);
+  }).catch((err) => {
+    res.send("Error occurred");
+  })
+})
+
+route.post('/get_product_category_wise',(req,res) => {
+  var categor = req.body.product_category;
+
+  if(categor==undefined){
+    res.send("Category value is not correct");
+  }
+  else{
+    Product.findAll({where : {product_category : categor}}).then((products) => {res.send(products)}).catch((err) => {res.send("error")});
   }
 })
 
+route.post('/get_product_id_wise',(req,res) => {
+  var id = req.body.product_id;
 
+  if(id==undefined){
+    res.send("Category value is not correct");
+  }
+  else{
+    Product.findOne({where : {product_id : id}}).then((product) => {res.send(product)}).catch((err) => {res.send("error")});
+  }
+})
 
 exports = module.exports = route;

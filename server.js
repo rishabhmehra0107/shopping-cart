@@ -41,12 +41,18 @@ app.get('/cust_logout',(req,res) => {
     req.session.cust_id = undefined;
     res.send("Success");
   }
+  else{
+    res.send("Already logout");
+  }
 })
 
 app.get('/owner_logout',(req,res) => {
   if(req.session.owner_id!=undefined){
     req.session.owner_id = undefined;
     res.send("Success");
+  }
+  else{
+    res.send("Already logout");
   }
 })
 

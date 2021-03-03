@@ -99,4 +99,14 @@ route.get('/owner_isLoggedIn',(req,res) => {
   }
 })
 
+route.get('/get_owner_details',async (req,res) => {
+  if(req.session.owner_id==undefined){
+    res.send("Login required");
+  }
+  else{
+    var id = req.session.owner_id;
+    await Owner.findOne({where : {owner_id : id}}).then((response) => {res.send(response)}).catch((err) => res.send(id + "Error occured"));
+  }
+})
+
 module.exports = route;

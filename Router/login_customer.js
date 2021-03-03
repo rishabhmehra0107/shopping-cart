@@ -84,4 +84,14 @@ route.get('/cust_isLoggedIn',(req,res) => {
   }
 })
 
+route.get('/get_cust_details',async (req,res) => {
+  if(req.session.cust_id==undefined){
+    res.send("Login required");
+  }
+  else{
+    var id = req.session.cust_id;
+    await Customer.findOne({where : {customer_id : id}}).then((response) => {res.send(response)}).catch((err) => res.send(id + "Error occured"));
+  }
+})
+
 module.exports = route;
