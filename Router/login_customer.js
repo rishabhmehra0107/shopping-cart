@@ -75,4 +75,13 @@ route.post('/signup',async (req,res) => {
 
 })
 
+route.get('/cust_isLoggedIn',(req,res) => {
+  if(req.session.cust_id!=undefined){
+    res.send("Success");
+  }
+  else{
+    res.send("Login required");
+  }
+})
+
 module.exports = route;

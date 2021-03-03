@@ -29,7 +29,7 @@ route.post('/add_product',upload,async (req , res) => {
     var product_price = req.body.product_price;
 
     if(product_description.length<20 || product_name.length<6 || product_count<=0 || product_price<10 || product_category.length<=3 || req.file==undefined){
-      res.status(400).send("Error while uploading please follow the instructions");
+      res.send("Error while uploading please follow the instructions");
     }
     else{
 

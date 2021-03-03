@@ -36,6 +36,20 @@ app.use('/products',require('./Router/products.js'));
 // Cart route
 app.use('/cart',require('./Router/cart.js'));
 
+app.get('/cust_logout',(req,res) => {
+  if(req.session.cust_id!=undefined){
+    req.session.cust_id = undefined;
+    res.send("Success");
+  }
+})
+
+app.get('/owner_logout',(req,res) => {
+  if(req.session.owner_id!=undefined){
+    req.session.owner_id = undefined;
+    res.send("Success");
+  }
+})
+
 app.listen(PORT,() => {
   console.log("Server started");
 })
