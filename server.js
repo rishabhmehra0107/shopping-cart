@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public/JS'));
 
 app.use(session_express({
   secret: 'keyboard cat',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   name : 'session1'
 }))
@@ -35,6 +35,8 @@ app.use('/products',require('./Router/products.js'));
 
 // Cart route
 app.use('/cart',require('./Router/cart.js'));
+
+app.use('/transactions',require('./Router/transaction.js'));
 
 app.get('/cust_logout',(req,res) => {
   if(req.session.cust_id!=undefined){

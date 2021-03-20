@@ -21,6 +21,7 @@ $('document').ready(() => {
     },(response) => {
             if(response=="Success"){
               //Redirect //Set cookies for js
+              window.location = "http://localhost:9999/login.html"
             }
             else{
               alert(response);

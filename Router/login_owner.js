@@ -32,7 +32,7 @@ route.post('/',async (req , res) => {
       else{
         req.session.owner_cust = 'owner';
         req.session.owner_id = owner.dataValues.owner_id;
-        res.send("Success");
+        res.send(`${req.session.owner_id}`);
       }
     }
   }
@@ -50,11 +50,11 @@ route.post('/signup',async (req,res) => {
   var state = req.body.state;
 
   if(name.length <= 5 || email.length<=7 || password.length<=7 || address.length<=15 || phone.length!=10 || city.length<=5 || state.length<=5){
-    res.status(400).send("Please follow the instruction inorder to create account with us");
+    res.send("Please follow the instruction inorder to create account with us");
   }
 
   if(validator.isValidNumber(aadhar)==false){
-    res.status(400).send("Please add valid aadhar number");
+    res.send("Please add valid aadhar number");
   }
 
   //Check if owner exist
@@ -63,7 +63,7 @@ route.post('/signup',async (req,res) => {
   const owner_val_city = await Owner.findOne({ where: { owner_city : city} });
 
   if(owner_val_ema!=null || owner_val_adr!=null || owner_val_city!=null){
-    res.status(400).send("Seems like you already had an account with us or there is already a wonder store in your city");
+    res.send("Seems like you already had an account with us or there is already a wonder store in your city");
   }
   else{
     // Encrypt the password  // (Function to be added here)

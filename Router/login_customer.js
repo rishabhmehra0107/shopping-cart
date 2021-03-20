@@ -11,7 +11,6 @@ route.post('/',async (req , res) => {
   var email = req.body.email;
   var password = req.body.password;
 
-  console.log(email,password);
   //Check for the initial cred
   if(email.length<=7 || password.length<=7){
     res.send("Either email or password is incorrect");
@@ -32,7 +31,7 @@ route.post('/',async (req , res) => {
       // console.log(customer.dataValues.customer_id);
       req.session.owner_cust = 'customer';
       req.session.cust_id = customer.dataValues.customer_id;
-      res.send("Success");
+      res.send(`${customer.dataValues.customer_id}`);
     }
   }
 })
@@ -69,19 +68,20 @@ route.post('/signup',async (req,res) => {
         customer_phone : phone
       });
 
-      res.status(200).send("Success");
+      res.send("Success");
     }
   }
 
 })
 
 route.get('/cust_isLoggedIn',(req,res) => {
-  if(req.session.cust_id!=undefined){
-    res.send("Success");
-  }
-  else{
-    res.send("Login required");
-  }
+  console.log(req.session.cust_id);
+  res.send(`${req.session.cust_id}`);
+})
+
+route.get('/logout',(req,res) => {
+  req.session.cust_id = undefined;
+  res.send("Success");
 })
 
 route.get('/get_cust_details',async (req,res) => {
