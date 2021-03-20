@@ -47,6 +47,10 @@ route.post('/add_product',upload,async (req , res) => {
     }
 })
 
+route.get('/all_prod',async (req,res) => {
+  await Product.findAll({order : ['product_category']}).then((response) => res.send(response)).catch((err) => res.send("error"));
+})
+
 route.get('/product_category',(req,res) => {
   Product.aggregate('product_category','DISTINCT',{plain : false}).then((response) => {
     res.send(response);

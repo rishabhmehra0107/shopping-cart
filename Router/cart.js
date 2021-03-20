@@ -59,7 +59,7 @@ route.get('/getItems',async (req,res) => {
   else{
     var cust_id = req.session.cust_id;
 
-    await Cart.findAll({where: {customerCustomerId : cust_id}}).then((response) => {res.send(response)}).catch((err) => {res.send("Could not fetch details")});
+    await Cart.findAll({where: {customerCustomerId : cust_id} , include: [Product]}).then((response) => {res.send(response)}).catch((err) => {res.send("Could not fetch details")});
   }
 })
 
