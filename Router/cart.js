@@ -51,6 +51,20 @@ route.post('/delete',(req , res) => {
   }
 })
 
+route.post('/check_presence',(req , res) => {
+  if(!req.session.cust_id){
+    res.send("Not authorized");
+  }
+  else{
+    var cust_id = req.session.cust_id;
+    var prod_id = req.body.prod_id;
+
+    Cart.findAll({where: {
+      [Op.and] : [{customerCustomerId : cust_id} , {productProductId : prod_id}]
+    }}).then((response) => {res.send(response)}).catch((err) => res.send("error"));
+  }
+})
+
 //get items in the cart
 route.get('/getItems',async (req,res) => {
   if(!req.session.cust_id){
