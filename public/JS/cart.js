@@ -8,7 +8,7 @@ $(document).ready(() => {
     $('#logout_time').click(() => {
         //Unset the session
         sessionStorage.removeItem("user");
-        $.get('http://localhost:9999/login/logout',(response) => {profile_owner
+        $.get('http://localhost:9999/login/logout',(response) => {
             if(response=="Success"){
                 window.location = "http://localhost:9999/login.html";
             }
@@ -58,7 +58,9 @@ $(document).ready(() => {
 
     $('#place').click(() => {
         if (confirm("Do you want to save changes?") == true) {
-            console.log("Placed");
+            $.get('http://localhost:9999/transactions/place_order',(response) => {
+                window.location = "http://localhost:9999/transaction_page.html";
+            })
         } else {
             console.log("Cancelled");
         }
