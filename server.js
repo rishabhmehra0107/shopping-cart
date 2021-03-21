@@ -40,6 +40,8 @@ app.use('/transactions',require('./Router/transaction.js'));
 
 app.use('/product_owner',require('./Router/product_owner.js'));
 
+app.use('/owner_cart' , require('./Router/cart_owner.js'));
+
 app.get('/cust_logout',(req,res) => {
   if(req.session.cust_id!=undefined){
     req.session.cust_id = undefined;

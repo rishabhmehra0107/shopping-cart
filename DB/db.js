@@ -101,8 +101,17 @@ const Transaction = db.define('transaction',{
   //Also contain the coustmer_id
 });
 
+const CartOwner = db.define('CartOwner',{
+  cart_owner_id : {
+    type : DataTypes.INTEGER,
+    primaryKey : true,
+    autoIncrement : true
+  },
+  prod_count : DataTypes.INTEGER
+})
+
 const ProductSold = db.define('product_sold',{
-  product_count : DataTypes.INTEGER
+  product_count : DataTypes.INTEGER,
   //Also contain the coustmer_id,product_id,store_id,transaction_id
 })
 
@@ -121,7 +130,8 @@ Cart.belongsTo(Product);
 Transaction.belongsTo(Customer);
 ProductSold.belongsTo(Store);
 ProductSold.belongsTo(Product);
-
+CartOwner.belongsTo(Owner);
+CartOwner.belongsTo(Product);
 
 
 //Sync
@@ -141,5 +151,6 @@ exports = module.exports = {
   Cart ,
   Review ,
   Customer,
-  Sequelize
+  Sequelize,
+  CartOwner
 }

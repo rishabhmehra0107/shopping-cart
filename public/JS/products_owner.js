@@ -55,5 +55,22 @@ $(document).ready(() => {
 
 
 async function clicked(e){
-    
+    await $.post('http://localhost:9999/owner_cart/check_presence',{'prod_id' : e},(response) => {
+        if(response.length!=0){
+            var new_sum = response[0].prod_count + 1;
+            console.log(new_sum);
+            $.post('http://localhost:9999/owner_cart/delete',{'prod_id' : e},(response) => {
+                if(response=="Success"){
+                    $.post('http://localhost:9999/owner_cart/addItem',{'product' : e,prod_count : new_sum},(response) => {
+                        alert(response);
+                    })
+                }
+            })
+        }
+        else{
+            $.post('http://localhost:9999/owner_cart/addItem',{'product' : e,prod_count : 1},(response) => {
+                        alert(response);
+            })
+        }
+    })
 }
