@@ -6,12 +6,12 @@
         <title>Wonder Market</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="profile_owner.css">
+        <link rel="stylesheet" href="products_page.css">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script defer async src="profile_owner.js"></script>
+        <script defer async src="add_products.js"></script>
     </head>
     <body>
         
@@ -26,14 +26,40 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ml-auto">
+                    <input type="text" class="form-control search-input" name="query" id="query" placeholder="Enter the product name">
+                    <button class="btn btn-outline-success my-2 my-sm-0 mx-1" type="submit">Search</button>
+                </ul>
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active" style="color : white ; margin-right:20px"><a href="http://localhost:9999/products_owner.html" style="text-decoration: none; color : white;">Products</a></li>
-                    <li class="nav-item active" style="color : white ; margin-right:20px"><a href="http://localhost:9999/profile_owner.html" style="text-decoration: none; color : white;">Profile</a></li>
+                    <li class="nav-item active" style="color : white ; margin-right:20px"><a href="http://localhost:9999/add_product.html" style="text-decoration: none; color : white;">Add Product</a></li>
                     <li class="nav-item active" style="color : white ; margin-right:20px"><a href="http://localhost:9999/cart_owner.html" style="text-decoration: none; color : white;">Cart</a></li>
                     <li class="nav-item active" id="logout_time" style="color : white ; margin-right:20px">Logout</li>
                 </ul>
             </div>
         </nav>
+
+        <div class="container" style="border : 1px solid; border-radius : 5px; margin-top : 40px; padding : 20px"> 
+            <div>
+            <h3 class="text-center">Add Product</h3>
+                <form action="http://localhost:9999/product_owner/add_product" method="post" enctype="multipart/form-data">
+                    <input type="text" class="input-group" placeholder="Enter product name" id="name" name="product_name">
+                    <br>
+                    <input type="text" class="input-group" placeholder="Enter product category" id="category" name="product_category">
+                    <br>
+                    <input type="text" class="input-group" placeholder="Enter product description" id="description" name="product_description">
+                    <br>
+                    <input type="text" class="input-group" placeholder="Enter product Price" id="price" name="product_price">
+                    <br>
+                    <input type="text" class="input-group" placeholder="Enter product quantity" id="quantity" name="product_quantity">
+                    <br>
+                    <input type="file" class="input-group" placeholder="Enter product image" id="filename" name="prod_img">
+                    <br>
+                    <button type="submit" class="btn btn-primary" value="Submit" id="buttonsub">Add</button>
+                </form>
+            </div>
+        </div>
 
     </body>
 </html>

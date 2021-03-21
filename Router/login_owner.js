@@ -109,4 +109,9 @@ route.get('/get_owner_details',async (req,res) => {
   }
 })
 
+route.get('/logout',(req,res) => {
+  req.session.owner_id = undefined;
+  res.send("Success");
+})
+
 module.exports = route;
