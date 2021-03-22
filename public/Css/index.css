@@ -1,12 +1,64 @@
-.carousel-caption{
-  top: 50%;
-  transform: translateY(-50%);
+.navbar{
+  background-color : #decbc6;
+  color : black
 }
 
-.footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  text-align: center;
+a{
+  text-decoration : none;
+  color : black;
+  margin : 0px 20px 0px 20px;
+  font-style: oblique;
+  font-size: 20px;
+  font-family : "Helvetica Neue"
+}
+
+#part1{
+  padding : 3%;
+  animation-duration: 1s;
+  animation-name : part1ani;
+  animation-delay: 0.5s;
+  animation-duration: 4s;
+}
+
+@keyframes part1ani{
+  0%  {opacity: 0}
+  25% {opacity: 0.25;}
+  50%  {opacity: 0.5}
+  100%  {opacity: 1}
+}
+
+#left_side_part1{
+  /* border : 1px solid; */
+  color : black;
+  font-size: 25px;
+}
+
+#btnid{
+  background-color : #decbc6;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#right_side_part1 {
+  /* border : 1px solid */
+}
+
+#part2{
+  /* border : 1px solid; */
+  padding-left : 5%;
+  padding-right :5%;
+  padding-top : 3%;
+  padding-bottom : 2%;
+  color : #bd8239;
+  font-size: 20px;
+  font-style: oblique;
+  font-family: 'Courier New', Courier, monospace;
+  animation-duration: 1s;
+  animation-name : part1ani;
+  animation-delay: 0.5s;
+  animation-duration: 4s;
+}
+
+#textPart2{
+  padding : 10px;
 }

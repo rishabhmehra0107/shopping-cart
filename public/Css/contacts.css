@@ -1,11 +1,21 @@
-body{
-  background-color: #d2e6ea;
+.navbar{
+  background-color : #decbc6;
+  color : black
+}
+
+li a{
+  text-decoration : none;
+  color : black;
+  margin : 0px 20px 0px 20px;
+  font-style: oblique;
+  font-size: 20px;
+  font-family : "Helvetica Neue"
 }
 
 #form1{
   border: 1px dashed black;
   border-radius: 5px;
-  background-color: white;
+  background-color: #8EC5FC;
 }
 
 .footer {

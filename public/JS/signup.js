@@ -13,10 +13,10 @@ $('document').ready(() => {
     var btn = $('#btn');
 
     btn.click(() => {
-        $.post("/login/signup",{'name' : `${firstName.val() + middleName.val() + lastName.val()}` 
+        $.post("/login/signup",{'name' : `${firstName.val() + " " + middleName.val() + "  "  + lastName.val()}` 
         ,'email' : `${email.val()}`
         ,'password' : `${password.val()}`
-        , 'address' : `${address1.val() + address2.val() + address3.val() + town.val() + country.val()}`
+        , 'address' : `${address1.val() + " " + address2.val() + " " + address3.val() + " ," + town.val() + " ," + country.val()}`
         , 'phone' : `${phone.val()}`
     },(response) => {
             if(response=="Success"){
