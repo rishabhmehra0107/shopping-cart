@@ -15,7 +15,7 @@
     </head>
     <body>
         
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg">
             <div class="navbar-brand">
                 <img src="logo.png" style="width:30px; height:30px"/>
                 Wonder Market
@@ -28,31 +28,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto ml-auto">
                     <input type="text" class="form-control search-input" name="query" id="query" placeholder="Enter the product name">
-                    <button class="btn btn-outline-success my-2 my-sm-0 mx-1" type="submit">Search</button>
+                    <button class="btn btn-outline-success my-2 my-sm-0 mx-1" type="submit" style="color : black;">Search</button>
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active" style="color : white ; margin-right:20px"><a href="http://localhost:9999/products_owner.html" style="text-decoration: none; color : white;">Products</a></li>
-                    <li class="nav-item active" style="color : white ; margin-right:20px"><a href="http://localhost:9999/add_product.html" style="text-decoration: none; color : white;">Add Product</a></li>
-                    <li class="nav-item active" style="color : white ; margin-right:20px"><a href="http://localhost:9999/cart_owner.html" style="text-decoration: none; color : white;">Cart</a></li>
-                    <li class="nav-item active" id="logout_time" style="color : white ; margin-right:20px">Logout</li>
+                    <li class="nav-item active" style="color : white ;"><a href="http://localhost:9999/products_owner.html" style="text-decoration: none; color : white;">Products</a></li>
+                    <li class="nav-item active" style="color : white ;"><a href="http://localhost:9999/add_product.html" style="text-decoration: none; color : white;">Add Product</a></li>
+                    <li class="nav-item active" style="color : white ;"><a href="http://localhost:9999/cart_owner.html" style="text-decoration: none; color : white;">Cart</a></li>
+                    <li class="nav-item active" id="logout_time" style="color : white ;">Logout</li>
                 </ul>
             </div>
         </nav>
 
         <div class="container">
-            <div class="cart_section">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1">
-                            <div class="cart_container">
-                                <div class="cart_items" id="productitems">
-                                    
-                                </div>
-                               </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="productitems">
             </div>
         </div>
 

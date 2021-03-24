@@ -44,7 +44,7 @@ const Product = db.define('product',{
   },
   product_name : DataTypes.STRING(50),
   product_price : DataTypes.INTEGER,
-  product_description : DataTypes.STRING(50),
+  product_description : DataTypes.STRING(200),
   product_image_url : DataTypes.STRING(200),
   product_count : DataTypes.INTEGER,
   product_category : DataTypes.STRING(50)

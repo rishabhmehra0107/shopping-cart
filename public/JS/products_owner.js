@@ -18,32 +18,31 @@ $(document).ready(() => {
     $.get('http://localhost:9999/product_owner/all_prod_store_wise',(response) => {
         var str = '';
         for(let i=0;i<response.length;i++){
-            str +=`<ul class="cart_list my-5">
-                             <li class="cart_item clearfix">
-                                 <div class="cart_item_image"><img src="http://localhost:9999/${response[i].product_image_url}" alt="Image :("></div>
-                                 <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-                                     <div class="cart_item_name cart_info_col">
-                                         <div class="cart_item_title">Name</div>
-                                         <div class="cart_item_text">${response[i].product_name}</div>
-                                     </div>
-                                     <div class="cart_item_color cart_info_col">
-                                         <div class="cart_item_title">Category</div>
-                                         <div class="cart_item_text"><span style="background-color:#999999;"></span>${response[i].product_category}</div>
-                                     </div>
-                                     <div class="cart_item_quantity cart_info_col">
-                                         <div class="cart_item_title">Quantity Remaining</div>
-                                         <div class="cart_item_text">${response[i].product_count}</div>
-                                     </div>
-                                     <div class="cart_item_price cart_info_col">
-                                         <div class="cart_item_title">Price</div>
-                                         <div class="cart_item_text">${response[i].product_price}</div>
-                                     </div>
-                                     <div class="cart_item_total cart_info_col">
-                                         <div class="cart_item_text"><button class="btn btn-primary buy_btn" onClick="clicked(${response[i].product_id})">Sell</button></div>
-                                     </div>
-                                 </div>
-                             </li>
-                        </ul>
+            str +=`<div class="col-sm-12 col-md-5 box">
+            <div class="insidebox">
+                <div class="row" id="part1">
+                    <div class="col-5 text-center" id="part1text">
+                        <div class="namespart1">${response[i].product_name}</div>
+                        <br>
+                        <div class="namespart1">Type -: ${response[i].product_category}</div>
+                        <br>
+                        <div class="namespart1">InStock -: ${response[i].product_count}</div>
+                    </div>
+                    <div class="imagePart col-5 text-center">
+                        <img src="http://localhost:9999/${response[i].product_image_url}" alt="Image :(" height="200px" width="col-12" id="image">
+                    </div>
+                </div>
+
+                <div class="row" id="part2">
+                    <div class="col-12">
+                    ${response[i].product_description}
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary col-10 m-1" onClick="clicked(${response[i].product_id})">Sell Price -: ${response[i].product_price} per item</button>
+               
+            </div>
+        </div>
         `;
 
         }
