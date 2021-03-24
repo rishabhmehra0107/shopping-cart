@@ -29,7 +29,7 @@ $(document).ready(() => {
                                 <div class="namespart1">InStock -: ${response[i].product_count}</div>
                             </div>
                             <div class="imagePart col-5 text-center">
-                                <img src="http://localhost:9999/${response[i].product_image_url}" alt="Image :(" height="100%" width="col-12" id="image">
+                                <img src="http://localhost:9999/${response[i].product_image_url}" alt="Image :(" height="200px" width="col-12" id="image">
                             </div>
                         </div>
 
