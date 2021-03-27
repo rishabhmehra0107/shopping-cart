@@ -1,6 +1,7 @@
 const route = require('express').Router();
 const multer = require('multer');
 const path = require('path');
+const { Op , Sequelize } = require("sequelize");
 
 const {db , Product,Store} = require('../DB/db.js');
 
@@ -58,6 +59,33 @@ route.get('/all_prod_store_wise',async (req,res) => {
     .catch((err) => res.send("error"))
   });
 })
+
+route.post('/get_product_category_wise',(req,res) => {
+  var categor = req.body.product_category;
+
+  if(categor==undefined){
+    res.send("Category value is not correct");
+  }
+  else{
+    Store.findOne({where : {ownerOwnerId : req.session.owner_id}}).then((respo) => {
+      Product.findAll({where : {[Op.and] : [{storeStoreId : respo.store_id} , {product_category : categor}]}, order : ['product_category']})
+      .then((response) => res.send(response))
+      .catch((err) => res.send("error"))
+    });
+  }
+})
+
+
+route.get('/product_category',(req,res) => {
+  Store.findOne({where : {ownerOwnerId : req.session.owner_id}}).then((respo) => {
+    Product.findAll({where : {storeStoreId : respo.store_id} , attributes : [Sequelize.fn('DISTINCT', Sequelize.col('product_category')) ,'product_category'],}).then((response) => {
+      res.send(response);
+    }).catch((err) => {
+      res.send("Error occurred");
+    });
+  });
+});
+
 
 
 exports = module.exports = route;

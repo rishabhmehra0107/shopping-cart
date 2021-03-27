@@ -80,6 +80,15 @@ $(document).ready(() => {
         // console.log(str);
     });
 
+    $.get('http://localhost:9999/products/product_category',(res) => {
+        var ele = "";
+        for(let i=0;i<res.length;i++){
+            ele += `<li class="nav-item active type" style="color : white ; margin-right:20px;" id="${res[i]['DISTINCT']}"><div onClick="callBackFun(${res[i]['DISTINCT']})">${res[i]['DISTINCT']}</div></li>`;
+        }
+
+        $('#navbar_elements').append(ele);
+    })
+
 })
 
 async function clicked(e){
@@ -101,4 +110,44 @@ async function clicked(e){
             })
         }
     })
+}
+
+async function callBackFun(s){
+    $.post('http://localhost:9999/products/get_product_category_wise',{"product_category" : `${s.id}`},(response) => {
+        var str = '';
+        for(let i=0;i<response.length;i++){
+            str +=`<div class="col-sm-12 col-md-5 box" id="${response[i].product_id}">
+                    <div class="insidebox">
+                        <div class="row" id="part1">
+                            <div class="col-5 text-center" id="part1text">
+                                <div class="namespart1">${response[i].product_name}</div>
+                                <br>
+                                <div class="namespart1">Type -: ${response[i].product_category}</div>
+                                <br>
+                                <div class="namespart1">InStock -: ${response[i].product_count}</div>
+                            </div>
+                            <div class="imagePart col-5 text-center">
+                                <img src="http://localhost:9999/${response[i].product_image_url}" alt="Image :(" height="200px" width="col-12" id="image">
+                            </div>
+                        </div>
+
+                        <div class="row" id="part2">
+                            <div class="col-12">
+                            ${response[i].product_description}
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary col-10 m-1" onClick="clicked(${response[i].product_id})">Add to cart Price -: ${response[i].product_price} per item</button>
+                       
+                    </div>
+                </div>
+        `;
+
+        }
+        $('#productitems').empty();
+        $('#productitems').append(str);
+
+        $('.box').click((e) => {localStorage.setItem("id", e.delegateTarget.id)});
+        // console.log(str);
+    });
 }
