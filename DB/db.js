@@ -44,7 +44,7 @@ const Product = db.define('product',{
   },
   product_name : DataTypes.STRING(50),
   product_price : DataTypes.INTEGER,
-  product_description : DataTypes.STRING(200),
+  product_description : DataTypes.STRING(1000),
   product_image_url : DataTypes.STRING(200),
   product_count : DataTypes.INTEGER,
   product_category : DataTypes.STRING(50)
@@ -58,7 +58,7 @@ const Review = db.define('review',{
     primaryKey : true,
     autoIncrement : true
   },
-  review_description : DataTypes.STRING(50),
+  review_description : DataTypes.STRING(1000),
   review_rating : DataTypes.INTEGER
   //Also contain the product id as foreign key
 });
@@ -124,7 +124,7 @@ ProductSold.belongsTo(Transaction);
 
 //For one to many
 Product.belongsTo(Store);
-Review.belongsTo(Customer);
+Customer.hasOne(Review);
 Review.belongsTo(Product);
 Cart.belongsTo(Product);
 Transaction.belongsTo(Customer);

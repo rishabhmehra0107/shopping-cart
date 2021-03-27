@@ -1,6 +1,20 @@
+.navbar{
+    background-color : #decbc6;
+    color : black
+  }
+  
+  li {
+    text-decoration : none;
+    color : black;
+    margin : 0px 20px 0px 20px;
+    font-style: oblique;
+    font-size: 20px;
+    font-family : "Helvetica Neue"
+  }
+
 ul {
     list-style: none;
-    margin-bottom: 0px
+    margin-bottom: 0px;
 }
 
 .button {

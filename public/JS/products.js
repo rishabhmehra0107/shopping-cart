@@ -45,7 +45,7 @@ $(document).ready(() => {
     $.get('http://localhost:9999/products/all_prod',(response) => {
         var str = '';
         for(let i=0;i<response.length;i++){
-            str +=`<div class="col-sm-12 col-md-5 box">
+            str +=`<div class="col-sm-12 col-md-5 box" id="${response[i].product_id}">
                     <div class="insidebox">
                         <div class="row" id="part1">
                             <div class="col-5 text-center" id="part1text">
@@ -75,8 +75,11 @@ $(document).ready(() => {
         }
 
         $('#productitems').append(str);
+
+        $('.box').click((e) => {localStorage.setItem("id", e.delegateTarget.id)});
         // console.log(str);
     });
+
 })
 
 async function clicked(e){

@@ -57,6 +57,8 @@ route.post('/signup',async (req,res) => {
     res.send("Please add valid aadhar number");
   }
 
+  else{
+
   //Check if owner exist
   const owner_val_ema = await Owner.findOne({ where: { owner_email : email} });
   const owner_val_adr = await Owner.findOne({ where: { owner_address : address} });
@@ -88,6 +90,7 @@ route.post('/signup',async (req,res) => {
 
     res.status(200).send("Success");
   }
+}
 })
 
 route.get('/owner_isLoggedIn',(req,res) => {
