@@ -5,6 +5,33 @@ $(document).ready(() => {
 
     var logout_time = $('#logout_time');
     
+    const SpeechRecognition = window.speechRecognition || window.webkitSpeechRecognition;
+    var recognition = new SpeechRecognition();
+    var textbox = $('#textwritten');
+    recognition.continous = true;
+
+    recognition.onerror = () => {
+        alert("Error occured");
+    }
+
+    recognition.onresult = (event) => {
+        var current = event.resultIndex;
+        var content = event.results[current][0].transcript;
+        $('#query').val(content);
+        console.log(content);
+    }
+
+    $('#btn').click(() => {
+        recognition.start();
+    })
+
+    $('#search').click(() => {
+        if($('#query').val()==''){
+            alert("Enter or speak the text to search");
+        }
+        console.log('Clicked');
+    })
+    
     $('#logout_time').click(() => {
         //Unset the session
         sessionStorage.removeItem("user");
