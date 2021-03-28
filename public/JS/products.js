@@ -76,7 +76,20 @@ $(document).ready(() => {
 
         $('#productitems').append(str);
 
-        $('.box').click((e) => {localStorage.setItem("id", e.delegateTarget.id)});
+        $('.box').click((e) => {
+            localStorage.setItem("id", e.delegateTarget.id);
+            $('.box').click((e) => {
+                localStorage.setItem("id", e.delegateTarget.id);
+                $('.outerbox2').css("display","inline");
+                $('.box2').append(`<iframe src="http://localhost:9999/products_info.html" height="700px" width="80%">`);
+                $('.box1').css('opacity','0.1');
+            });
+    
+            $('.outerbox2').click(() => {
+                $('.outerbox2').css("display","none");
+                $('.box1').css('opacity','1');
+            });
+        });
         // console.log(str);
     });
 
@@ -147,7 +160,18 @@ async function callBackFun(s){
         $('#productitems').empty();
         $('#productitems').append(str);
 
-        $('.box').click((e) => {localStorage.setItem("id", e.delegateTarget.id)});
+        $('.box').click((e) => {
+            localStorage.setItem("id", e.delegateTarget.id);
+            $('.outerbox2').css("display","inline");
+            $('.box2').append(`<iframe src="http://localhost:9999/products_info.html" height="700px" width="80%">`);
+            $('.box1').css('opacity','0.1');
+        });
+
+        $('.outerbox2').click(() => {
+            $('.outerbox2').css("display","none");
+            $('.box1').css('opacity','1');
+        });
+        
         // console.log(str);
     });
 }
