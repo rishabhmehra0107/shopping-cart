@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const DataTypes = Sequelize.DataTypes
 
-const db = new Sequelize('wondermarket','sa','omsairam@1234',{
+const db = new Sequelize('wondermarket','sa','',{
   host : 'localhost,1401',
   dialect : 'mysql'
 })
